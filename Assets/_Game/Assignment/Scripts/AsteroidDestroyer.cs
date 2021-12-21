@@ -15,9 +15,10 @@ namespace Asteroids
         [SerializeField] private AsteroidRunTimeSet asteroids;
         [SerializeField] private ScriptableOnDestroyEvent scriptableOnDestroyEvent;
         
-        [Header("Config")] 
+        [Header("Cluster Config")] 
         [SerializeField] private float clusterForce;
         [SerializeField] private float clusterDistance;
+        [SerializeField] private int clusterAmount;
 
         private void Awake()
         {
@@ -33,7 +34,7 @@ namespace Asteroids
             {
                 decimal clusterStep = (decimal) (2 * Mathf.PI) / asteroid.size;
                 
-                for (int i = 0; i < asteroid.size; i++)
+                for (int i = 0; i < clusterAmount; i++)
                 {
                     Asteroid newAsteroid = Instantiate(asteroid, asteroid.transform.position, Quaternion.identity);
                     newAsteroid.size = asteroid.size - 1;
