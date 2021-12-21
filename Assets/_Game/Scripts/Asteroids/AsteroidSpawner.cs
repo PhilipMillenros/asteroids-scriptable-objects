@@ -11,7 +11,7 @@ namespace Asteroids
         [SerializeField] private float _maxSpawnTime;
         [SerializeField] private int _minAmount;
         [SerializeField] private int _maxAmount;
-        
+        [SerializeField] private int maxSpawnSize;
         private float _timer;
         private float _nextSpawnTime;
         private Camera _camera;
@@ -66,7 +66,8 @@ namespace Asteroids
             {
                 var location = GetSpawnLocation();
                 var position = GetStartPosition(location);
-                Instantiate(_asteroidPrefab, position, Quaternion.identity);
+                Asteroid asteroid = Instantiate(_asteroidPrefab, position, Quaternion.identity);
+                asteroid.size = Random.Range(1, maxSpawnSize);
             }
         }
 

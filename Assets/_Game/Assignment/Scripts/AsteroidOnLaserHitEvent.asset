@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a9cfe7936d498fb145f0f71a850e32, type: 3}
-  m_Name: Paper
+  m_Script: {fileID: 11500000, guid: 197ecc5de0c7d4f48a8a523b500d4d67, type: 3}
+  m_Name: AsteroidOnLaserHitEvent
   m_EditorClassIdentifier: 
-  DefeatedElements:
-  - {fileID: 11400000, guid: 1cefc1a7512fa21408e244abb3179aa9, type: 2}
-  myString: Hello!
-  myFloat: 13.37

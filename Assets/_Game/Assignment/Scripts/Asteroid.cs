@@ -1,6 +1,9 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Assignment.Scripts;
 using DefaultNamespace.ScriptableEvents;
 using UnityEngine;
-using Variables;
 using Random = UnityEngine.Random;
 
 namespace Asteroids
@@ -17,14 +20,22 @@ namespace Asteroids
         [SerializeField] private float _maxSize;
         [SerializeField] private float _minTorque;
         [SerializeField] private float _maxTorque;
-
+        public int size = 1;
+        public int Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+            }
+        }
         [Header("References:")]
         [SerializeField] private Transform _shape;
-
+        [SerializeField] private AsteroidRunTimeSet asteroidRunTimeSet;
+        [SerializeField] private ScriptableOnDestroyEvent scriptableOnDestroyEvent;
         private Rigidbody2D _rigidbody;
         private Vector3 _direction;
         private int _instanceId;
-
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -35,38 +46,27 @@ namespace Asteroids
             AddTorque();
             SetSize();
         }
-        
+
+        private void OnEnable()
+        {
+            asteroidRunTimeSet.Add(this);
+        }
+        private void OnDisable()
+        {
+            asteroidRunTimeSet.Remove(this);
+        }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (string.Equals(other.tag, "Laser"))
+            if (other.CompareTag("Laser"))
             {
-               HitByLaser();
+               OnHitByLaser();
             }
+        }
+        private void OnHitByLaser() 
+        {
+            scriptableOnDestroyEvent.Raise(gameObject);
         }
 
-        private void HitByLaser()
-        {
-            _onAsteroidDestroyed.Raise(_instanceId);
-            Destroy(gameObject);
-        }
-
-        // TODO Can we move this to a single listener, something like an AsteroidDestroyer?
-        public void OnHitByLaser(IntReference asteroidId)
-        {
-            if (_instanceId == asteroidId.GetValue())
-            {
-                Destroy(gameObject);
-            }
-        }
-        
-        public void OnHitByLaserInt(int asteroidId)
-        {
-            if (_instanceId == asteroidId)
-            {
-                Destroy(gameObject);
-            }
-        }
-        
         private void SetDirection()
         {
             var size = new Vector2(3f, 3f);
@@ -98,7 +98,6 @@ namespace Asteroids
 
         private void SetSize()
         {
-            var size = Random.Range(_minSize, _maxSize);
             _shape.localScale = new Vector3(size, size, 0f);
         }
     }

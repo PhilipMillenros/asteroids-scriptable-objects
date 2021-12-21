@@ -216,8 +216,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1867257717}
   - component: {fileID: 1867257716}
+  - component: {fileID: 1867257718}
   m_Layer: 0
-  m_Name: AsteroidSpawner
+  m_Name: Asteroid Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,6 +241,7 @@ MonoBehaviour:
   _maxSpawnTime: 4
   _minAmount: 1
   _maxAmount: 2
+  maxSpawnSize: 4
 --- !u!4 &1867257717
 Transform:
   m_ObjectHideFlags: 0
@@ -254,6 +256,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867257718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867257715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f134eeb3984f41dfb0d8b9686f5e116e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroids: {fileID: 11400000, guid: 1a35fee0269add74a9d84fb8cb4afa27, type: 2}
+  scriptableOnDestroyEvent: {fileID: 11400000, guid: e6464087a7dcfab4faf42bfddda68788, type: 2}
+  clusterForce: 5
+  clusterDistance: 2
 --- !u!1001 &2970632032457142644
 PrefabInstance:
   m_ObjectHideFlags: 0

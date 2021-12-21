@@ -23,7 +23,11 @@ namespace Ship
             _lasers.Add(gameObject);
             Debug.Log(" Amount Of Lasers: " + _lasers.Amount);
         }
-
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if(other.CompareTag("Asteroid"))
+                Destroy(gameObject);
+        }
         private void OnDestroy()
         {
             _lasers.Remove(gameObject);

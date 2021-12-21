@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.asteroids-scriptable-objects-main.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\sewen\Desktop\FutureGames\Unity Projects\asteroids-scriptable-objects-main\.idea\.idea.asteroids-scriptable-objects-main\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

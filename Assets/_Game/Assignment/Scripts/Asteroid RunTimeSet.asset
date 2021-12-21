@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a9cfe7936d498fb145f0f71a850e32, type: 3}
-  m_Name: Rock
+  m_Script: {fileID: 11500000, guid: 381911a4ad871ef4c9b272b5e3a64bbb, type: 3}
+  m_Name: Asteroid RunTimeSet
   m_EditorClassIdentifier: 
-  DefeatedElements:
-  - {fileID: 11400000, guid: e38a16f4d6d8a4c40b6afde8a021f9e3, type: 2}
-  myString: Hello!
-  myFloat: 13.37

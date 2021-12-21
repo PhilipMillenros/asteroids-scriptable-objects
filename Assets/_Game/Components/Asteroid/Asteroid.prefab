@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1784223117350305384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1524412162417054026}
   m_Father: {fileID: 0}
@@ -52,7 +52,10 @@ MonoBehaviour:
   _maxSize: 1
   _minTorque: 0.1
   _maxTorque: 0.5
+  size: 1
   _shape: {fileID: 1524412162417054026}
+  asteroidRunTimeSet: {fileID: 11400000, guid: 1a35fee0269add74a9d84fb8cb4afa27, type: 2}
+  scriptableOnDestroyEvent: {fileID: 11400000, guid: e6464087a7dcfab4faf42bfddda68788, type: 2}
 --- !u!50 &1784223117350305362
 Rigidbody2D:
   serializedVersion: 4
@@ -119,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1494e5ca4ea41309c15087d2a3a3507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toDestroy: {fileID: 1784223117350305384}
 --- !u!212 &7434321719335165977
 SpriteRenderer:
   m_ObjectHideFlags: 0
