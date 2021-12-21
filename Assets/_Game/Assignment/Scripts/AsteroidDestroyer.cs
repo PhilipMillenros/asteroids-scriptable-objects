@@ -31,19 +31,25 @@ namespace Asteroids
             
             if (asteroid.size > 1)
             {
-                decimal clusterStep = (decimal) (2 * Mathf.PI) / asteroid.size;
-                
-                for (int i = 0; i < asteroid.size; i++)
-                {
-                    Asteroid newAsteroid = Instantiate(asteroid, asteroid.transform.position, Quaternion.identity);
-                    newAsteroid.size = asteroid.size - 1;
-                    newAsteroid.transform.position += (Vector3) new Vector2(Mathf.Cos((float)clusterStep * i),
-                        Mathf.Sin((float)clusterStep * i) * clusterDistance); 
-                    newAsteroid.GetComponent<Rigidbody2D>().AddForce(new Vector2( Mathf.Cos((float)clusterStep * i),
-                        Mathf.Sin((float)clusterStep * i)) * clusterForce, ForceMode2D.Impulse);
-                }
+                SplitAsteroid(asteroid);
             }
             Destroy(asteroid.gameObject);
         }
+
+        private void SplitAsteroid(Asteroid asteroid)
+        {
+            decimal clusterStep = (decimal) (2 * Mathf.PI) / asteroid.size;
+                
+            for (int i = 0; i < asteroid.size; i++)
+            {
+                Asteroid newAsteroid = Instantiate(asteroid, asteroid.transform.position, Quaternion.identity);
+                newAsteroid.size = asteroid.size - 1;
+                newAsteroid.transform.position += (Vector3) new Vector2(Mathf.Cos((float)clusterStep * i),
+                    Mathf.Sin((float)clusterStep * i) * clusterDistance); 
+                newAsteroid.GetComponent<Rigidbody2D>().AddForce(new Vector2( Mathf.Cos((float)clusterStep * i),
+                    Mathf.Sin((float)clusterStep * i)) * clusterForce, ForceMode2D.Impulse);
+            }
+        }
     }
+    
 }
